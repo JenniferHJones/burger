@@ -1,10 +1,10 @@
 $(function() {  
 
-    $(".create-form").on("submit", function(event) {
+    $(".create").on("submit", function(event) {
       event.preventDefault();
   
       var newBurger = {
-        burger_name: $("#newBurger").val().trim(),
+        burger_name: $("#newB").val().trim(),
       };
   
       // Send the POST request.
@@ -20,7 +20,7 @@ $(function() {
       );
     });
     
-    $(".eatBurger").on("click", function(event) {
+    $("#eat").on("click", function(event) {
       var id = $(this).data("id");
       var nowDevoured = {devoured: true};
   
@@ -36,5 +36,21 @@ $(function() {
         }
       );
     });
+
+    $("#trash").on("click", function(event) {
+      var id = $(this).data("id");
+  
+      // Send the DELETE request.
+      $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+      }).then(
+        function() {
+          console.log("Trashed burger", id);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+
   });
   
