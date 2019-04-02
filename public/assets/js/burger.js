@@ -1,6 +1,9 @@
-$(function() {  
+$(document).ready(function () {
 
-    $(".create").on("submit", function(event) {
+  console.log("Ready");
+  console.log($(".create"));
+
+    $(".create").on("click", function(event) {
       event.preventDefault();
   
       var newBurger = {
@@ -20,7 +23,7 @@ $(function() {
       );
     });
     
-    $("#eat").on("click", function(event) {
+    $(".eat").on("click", function(event) {
       var id = $(this).data("id");
       var nowDevoured = {devoured: true};
   
@@ -37,7 +40,7 @@ $(function() {
       );
     });
 
-    $("#trash").on("click", function(event) {
+    $(".trash").on("click", function(event) {
       var id = $(this).data("id");
   
       // Send the DELETE request.
@@ -52,5 +55,4 @@ $(function() {
       );
     });
 
-  });
-  
+})

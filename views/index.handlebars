@@ -14,13 +14,13 @@
   <div class="activity mt-2">
     <div class="row">
       <div class="col-4">
-        <h5 class="mb-3">New Burgers</h5>
+        <h4 class="mb-3">New Burgers</h4>
         <ul>
           {{#each burgers}}
           {{#unless devoured}}
           <div class="mt-2">
             {{this.burger_name}}
-            <button type="button" id="eat" value="1" class="ml-2 btn btn-success btn-sm fas fa-utensils"></button>
+            <button type="button" data-id={{this.id}} class="eat ml-2 btn btn-success btn-sm fas fa-utensils"></button>
           </div>
           {{/unless}}
           {{/each}}
@@ -28,13 +28,13 @@
       </div>
       <div class="col-4"></div>
       <div class="col-4">
-        <h5 class="mb-3">Eaten Burgers</h5>
+        <h4 class="mb-3">Eaten Burgers</h4>
         <ul>
           {{#each burgers}}
           {{#if devoured}}
           <div class="mt-2">
             {{this.burger_name}}
-            <button type="button" id="trash" class="ml-2 btn btn-danger btn-sm far fa-trash-alt"></button>
+            <button type="button" data-id={{this.id}} class="trash ml-2 btn btn-danger btn-sm far fa-trash-alt"></button>
           </div>
           {{/if}}
           {{/each}}
